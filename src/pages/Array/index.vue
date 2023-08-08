@@ -19,17 +19,24 @@ const isSame = (valL: any, valR: any) => {
 
 <template>
   <DiffInput :is-array="true" @submit="submit"/>
-  <n-grid x-gap="4" y-gap="4" cols="4 s:5 m:6 l:7 xl:8 2xl:9" responsive="screen" class="border rounded mt-2 p-2" v-if="valL && valR">
-    <n-gi v-for="(item, index) in valL" :key="index" class="flex items-center">
-      <code class="rounded bg-gray-100 mr-2 px-1">{{ index }}</code>
-      <code :class="{'text-red-500': !isSame(item, valR[index])}">
-        {{ item }} / {{ valR[index] }}
-      </code>
-    </n-gi>
-   
-  </n-grid>
+  <div class="arr border rounded mt-2 grid p-2 gap-2 grid-cols-1 overflow-auto" v-if="valL && valR">
+    <div v-for="(item, index) in valL" :key="index" class="border flex w-full py-4 relative items-center justify-center flex-col">
+      <code class="bg-gray-100 top-0 left-0 index absolute">{{ index }}</code>
+      <code class="val flex text-center w-full items-center justify-center whitespace-nowrap" :class="{'text-red-500': !isSame(item, valR[index])}">{{ item }}</code>
+      <code class="val flex text-center w-full items-center justify-center whitespace-nowrap" :class="{'text-red-500': !isSame(item, valR[index])}">{{ valR?.[index] }}</code>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-
+.arr {
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));;
+}
+code.val {
+  display: block;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 </style>
