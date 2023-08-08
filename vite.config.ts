@@ -21,6 +21,7 @@ export default defineConfig({
           ]
         }
       ],
+      vueTemplate: true,
       eslintrc: {
         enabled: true,
       }

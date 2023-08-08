@@ -5,10 +5,8 @@ const props = defineProps<{
 const emits = defineEmits<{
   (e: 'submit', valL: any[], valR: any[]):void
 }>()
-const valL = ref(`1 2 3 4
-2 2 3 4`)
-const valR = ref(`1 2 3 4
-2 2 3 4`)
+const valL = ref()
+const valR = ref()
 
 const getDiff = () => {
   let l: any[]
