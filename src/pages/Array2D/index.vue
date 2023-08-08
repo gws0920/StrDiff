@@ -20,7 +20,7 @@ const isSame = (valL: any, valR: any) => {
 
 <template>
   <DiffInput :is-array="false" @submit="submit"/>
-  <div class="border rounded mt-4 grid p-2 gap-2 grid-cols-1 overflow-auto">
+  <div class="border rounded mt-2 grid p-2 gap-2 grid-cols-1 overflow-auto" v-if="valL && valR">
     <div class="grid gap-2" :style="{gridTemplateColumns: `repeat(${row.length}, 1fr)`}" v-for="(row, index) in valL" :key="index">
       <div v-for="(item, j) in row" :key="j" class="border flex w-full py-4 px-4 relative items-center justify-center">
         <code class="bg-gray-100 top-0 left-0 index absolute">{{ index }}, {{ j }}</code>

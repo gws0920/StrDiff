@@ -1,7 +1,7 @@
 # 比较一维/二维数组差异
 
 ## Github Page
-[预览](https://gws0920.github.io/vicons/)
+[预览](https://gws0920.github.io/StrDiff/)
 ## 数据解析
 ### 一维数组
 一维数组解析方式
