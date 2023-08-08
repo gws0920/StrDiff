@@ -10,8 +10,11 @@ const submit = (l: any[], r: any[]) => {
 }
 
 const isSame = (valL: any, valR: any) => {
-  if (isNaN(valL) || isNaN(valR)) {
-    return JSON.stringify(valL).toLocaleLowerCase() === JSON.stringify(valR).toLocaleLowerCase()
+  if (typeof valL === 'object' || typeof valR === 'object') {
+    return JSON.stringify(valL) === JSON.stringify(valR)
+  }
+  if (typeof valL === 'string' || typeof valR === 'string') {
+    return `${valL}`.toLocaleLowerCase() === `${valR}`.toLocaleLowerCase()
   }
   
   return +valL === +valR
